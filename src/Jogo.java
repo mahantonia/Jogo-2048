@@ -2,8 +2,8 @@
 public class Jogo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Tela inicio = new Tela();
+		inicio.comeca();;
 	}
 
 }
