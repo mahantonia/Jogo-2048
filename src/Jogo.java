@@ -1,9 +1,16 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
-public class Jogo {
+public class Jogo{
+	
+	public Jogo() {
 
-	public static void main(String[] args) {
-		Tela inicio = new Tela();
-		inicio.comeca();;
+		Matriz inicio = new Matriz();
+		inicio.criaTela();
+			
 	}
-
+	
+	
 }
