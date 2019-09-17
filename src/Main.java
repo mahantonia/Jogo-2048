@@ -5,7 +5,7 @@ public class Main {
 		/*Tela inicio = new Tela();
 		inicio.comeca();
 		*/
-		Jogo inicio = new Jogo();
+		Matriz inicio = new Matriz();
 
 	}
 
