@@ -108,16 +108,119 @@ public class Jogo{
 	
 	
 	public void movePecaBaixo() {
+		boolean movimenta = false;
+		printaTabuleiro();
+		System.out.println("\n");
+		
+		for(int k = 0; k < 3; k++) {
+			for(int i = 3; i > k; i--) {
+				for(int j = 0; j < 4; j++) {
+					if(tabuleiro[i-1][j] != 0) {
+						if(tabuleiro[i][j] != 0) {
+							if((tabuleiro[i][j] == tabuleiro[i-1][j]) && (modifica[i][j] != true) && (modifica[i-1][j] != true)) {
+								tabuleiro[i][j] = tabuleiro[i][j] + tabuleiro[i-1][j];
+								tabuleiro[i-1][j] = 0;
+								modifica[i][j] = true;
+								movimenta = true;
+								
+							}
+						}else {
+							tabuleiro[i][j] = tabuleiro[i-1][j];
+							tabuleiro[i-1][j] = 0;
+							movimenta = true;
+						}
+					}
+				}
+			}
+		}
+		
+		if(movimenta == true) {
+			geraBotaoAleatorio();
+			movimenta = false;
+		}
+		
+		printaTabuleiro();
+		zeraModifica();
+
 		
 	}
 	
+
+	
 	public void movePecaDireita() {
+		boolean movimenta = false;
+		printaTabuleiro();
+		System.out.println("\n");
 		
+		for(int k = 0; k < 3; k++) {
+			for(int i = 0; i < 4; i++) {
+				for(int j = 3; j > k; j--) {
+					if(tabuleiro[i][j-1] != 0) {
+						if(tabuleiro[i][j] != 0) {
+							if((tabuleiro[i][j] == tabuleiro[i][j-1]) && (modifica[i][j] != true) && (modifica[i][j-1] != true)) {
+								tabuleiro[i][j] = tabuleiro[i][j] + tabuleiro[i][j-1];
+								tabuleiro[i][j-1] = 0;
+								modifica[i][j] = true;
+								movimenta = true;
+								
+							}
+						}else {
+							tabuleiro[i][j] = tabuleiro[i][j-1];
+							tabuleiro[i][j-1] = 0;
+							movimenta = true;
+						}
+					}
+				}
+			}
+		}
+		
+		if(movimenta == true) {
+			geraBotaoAleatorio();
+			movimenta = false;
+		}
+		
+		printaTabuleiro();
+		zeraModifica();
+
 	}
 	
 	public void movePecaEsquerda() {
+		boolean movimenta = false;
+		printaTabuleiro();
+		System.out.println("\n");
 		
+		for(int k = 3; k > 0; k--) {
+			for(int i = 0; i < 4; i++) {
+				for(int j = 0; j < k; j++) {
+					if(tabuleiro[i][j+1] != 0) {
+						if(tabuleiro[i][j] != 0) {
+							if((tabuleiro[i][j] == tabuleiro[i][j+1]) && (modifica[i][j] != true) && (modifica[i][j+1] != true)) {
+								tabuleiro[i][j] = tabuleiro[i][j] + tabuleiro[i][j+1];
+								tabuleiro[i][j+1] = 0;
+								modifica[i][j] = true;
+								movimenta = true;
+								
+							}
+						}else {
+							tabuleiro[i][j] = tabuleiro[i][j+1];
+							tabuleiro[i][j+1] = 0;
+							movimenta = true;
+						}
+					}
+				}
+			}
+		}
+		
+		if(movimenta == true) {
+			geraBotaoAleatorio();
+			movimenta = false;
+		}
+		
+		printaTabuleiro();
+		zeraModifica();
+
 	}
+	
 	
 	/*Define quais numeros vai comecar (2 ou 4) */
 	public int geraValor() {

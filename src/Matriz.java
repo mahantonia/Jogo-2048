@@ -32,7 +32,7 @@ public class Matriz extends JFrame implements KeyListener{
 	    setFocusable(true);
 	}
 	
-	/* Criação do tabuleiro */
+	/* CriaÃ§Ã£o do tabuleiro */
 	private void configuraTabuleiro(){
 
 		painel = new JPanel(new GridLayout(4,4));
@@ -42,7 +42,7 @@ public class Matriz extends JFrame implements KeyListener{
     	this.add(painel);
 	}
 
-	/* Criação dos botoes */
+	/* CriaÃ§Ã£o dos botoes */
 	private void criaBotoes(){
     	for(int i=0; i<botao.length; i++){
         	for(int j=0;j<botao[i].length; j++){ 
@@ -62,19 +62,30 @@ public class Matriz extends JFrame implements KeyListener{
 		          } 
 		        
 		        if((e.getKeyCode() == KeyEvent.VK_S) || (e.getKeyCode() == KeyEvent.VK_DOWN)){ 
-		          	//jogo.moveBaixoPeca();
+		          	System.out.println("Baixo\n");
+		          	jogo.movePecaBaixo();
+		          	atualizaJogo();
+		        	//jogo.moveBaixoPeca();
 		        }
 		        if((e.getKeyCode() == KeyEvent.VK_A) || (e.getKeyCode() == KeyEvent.VK_LEFT)){ 
-		          //	jogo.moveEsquerdaPeca();
+		        	System.out.println("Esquerda\n");
+		        	jogo.movePecaEsquerda();
+		        	atualizaJogo();
+		        	
+		        	//	jogo.moveEsquerdaPeca();
 		        }
 		     
 		        if((e.getKeyCode() == KeyEvent.VK_D) || (e.getKeyCode() == KeyEvent.VK_RIGHT)){ 
+		        	System.out.println("Direita\n");
+		        	jogo.movePecaDireita();
+		        	atualizaJogo();
+		        	
 		        	//jogo.moveDireitoPeca();
 		        }
 		    }
 
 		 
-		    /* Só para o compilador nao reclamar e ficar feliz*/
+		    /* SÃ³ para o compilador nao reclamar e ficar feliz*/
 			public void keyTyped(KeyEvent e) { }
 		    public void keyReleased(KeyEvent e) { }
 
