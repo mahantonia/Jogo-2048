@@ -6,6 +6,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Matriz extends JFrame implements KeyListener{
@@ -59,19 +60,22 @@ public class Matriz extends JFrame implements KeyListener{
 		        	System.out.println("Cima\n");
 		        	jogo.movePecaCima();
 		        	atualizaJogo();
+		        	verificaPerdeu();
+		        	
 		          } 
 		        
 		        if((e.getKeyCode() == KeyEvent.VK_S) || (e.getKeyCode() == KeyEvent.VK_DOWN)){ 
 		          	System.out.println("Baixo\n");
 		          	jogo.movePecaBaixo();
 		          	atualizaJogo();
-		        	//jogo.moveBaixoPeca();
+		          	verificaPerdeu();
+		          	//jogo.moveBaixoPeca();
 		        }
 		        if((e.getKeyCode() == KeyEvent.VK_A) || (e.getKeyCode() == KeyEvent.VK_LEFT)){ 
 		        	System.out.println("Esquerda\n");
 		        	jogo.movePecaEsquerda();
 		        	atualizaJogo();
-		        	
+		        	verificaPerdeu();
 		        	//	jogo.moveEsquerdaPeca();
 		        }
 		     
@@ -79,11 +83,24 @@ public class Matriz extends JFrame implements KeyListener{
 		        	System.out.println("Direita\n");
 		        	jogo.movePecaDireita();
 		        	atualizaJogo();
-		        	
+		        	verificaPerdeu();
 		        	//jogo.moveDireitoPeca();
 		        }
 		    }
 
+			public void verificaPerdeu(){
+				if(jogo.verificaPerdeu()) {
+	        		JOptionPane dialogo = new JOptionPane();
+	        		
+	        		int opcao = dialogo.showConfirmDialog(this, "Voce Perdeu!!\nDeseja jogar novamente?", "mensagem", JOptionPane.YES_NO_OPTION);
+	        		
+	        		if(opcao == JOptionPane.YES_OPTION) {
+	        			Matriz novamente = new Matriz();
+	        		}
+	        		setVisible(false);
+	        		dispose();
+	        	}
+			}
 		 
 		    /* SÃ³ para o compilador nao reclamar e ficar feliz*/
 			public void keyTyped(KeyEvent e) { }
@@ -121,6 +138,12 @@ public class Matriz extends JFrame implements KeyListener{
 		 				}
 		 				if(tabuleiro[i][j] == 256) {
 		 					botao[i][j].setIcon(new ImageIcon("C:/Users/maanf/OneDrive/Área de Trabalho/faculdade/Projeto - eclipse/Testes/src/Imagens/256.jpg"));
+		 				}
+		 				if(tabuleiro[i][j] == 512) {
+		 					botao[i][j].setIcon(new ImageIcon("C:/Users/maanf/OneDrive/Área de Trabalho/faculdade/Projeto - eclipse/Testes/src/Imagens/512.jpg"));
+		 				}
+		 				if(tabuleiro[i][j] == 1024) {
+		 					botao[i][j].setIcon(new ImageIcon("C:/Users/maanf/OneDrive/Área de Trabalho/faculdade/Projeto - eclipse/Testes/src/Imagens/1024.jpg"));
 		 				}
 		 			}
 		 		}

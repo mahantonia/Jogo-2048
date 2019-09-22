@@ -245,6 +245,46 @@ public class Jogo{
 		return posicao;
 	}
 	
+	
+	public boolean verificaPerdeu() {		
+
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
+				if(tabuleiro[i][j] == 0) {
+					return false;
+				}else {
+					if(tabuleiro[i][j] == tabuleiro[i][j+1]) {
+						return false;
+					}
+					if(tabuleiro[i][j] == tabuleiro[i+1][j]) {
+						return false;
+					}
+				}
+			}
+		}
+		
+		for(int i = 0; i < 3; i++) {
+			if(tabuleiro[i][3] == 0) {
+				return false;
+			}else {
+				if(tabuleiro[i][3] == tabuleiro[i+1][3]) {
+					return false;
+				}
+			}
+		}
+		
+		for(int j = 0 ; j < 3; j++) {
+			if(tabuleiro[3][j] == 0) {
+				return false;
+			}else {
+				if(tabuleiro[3][j] == tabuleiro[3][j+1]) {
+					return false;
+				}
+			}
+		}
+		return true;
+		
+	}
 
 	
 
