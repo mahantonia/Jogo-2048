@@ -20,11 +20,13 @@ public class Jogo{
 	}
 
 	private boolean[][] modifica = new boolean[4][4];
+	
+	/* Construtor da classe */
 	public Jogo() {
 		criaTabuleiro();			
 	}
 	
-	/* Zera todas as posições do tabuleiro */
+	/* Zera todas as posicoes do tabuleiro */
 	public void criaTabuleiro() {
 		for(int i = 0; i < 4; i++) {
 			for(int j = 0; j < 4; j++) {
@@ -36,6 +38,7 @@ public class Jogo{
 		geraBotaoAleatorio();
 	}
 	
+	/* Gera posicoes i e j aleatorias */
 	public void geraBotaoAleatorio() {
 		
 		int posicaoI = geraPosicao();
@@ -67,12 +70,12 @@ public class Jogo{
 	 		}
 	}
 	
-	/* Move peca a cima */
+	/* Move peca para cima */
 	public void movePecaCima() {
 		boolean movimenta = false;
 		printaTabuleiro();
 		System.out.println("\n");
-		
+	
 		for(int k = 3; k > 0; k--) {
 			for(int i = 0; i < k; i++) {
 				for(int j = 0; j < 4; j++) {
@@ -102,11 +105,9 @@ public class Jogo{
 		
 		printaTabuleiro();
 		zeraModifica();
-
-		
 	}
 	
-	
+	/* Move peca para baixo */
 	public void movePecaBaixo() {
 		boolean movimenta = false;
 		printaTabuleiro();
@@ -146,7 +147,7 @@ public class Jogo{
 	}
 	
 
-	
+	/* Move peca para a direita */
 	public void movePecaDireita() {
 		boolean movimenta = false;
 		printaTabuleiro();
@@ -183,7 +184,7 @@ public class Jogo{
 		zeraModifica();
 
 	}
-	
+	/* Move peca para a esquerda */
 	public void movePecaEsquerda() {
 		boolean movimenta = false;
 		printaTabuleiro();
@@ -246,6 +247,7 @@ public class Jogo{
 	}
 	
 	
+	
 	public boolean verificaPerdeu() {		
 
 		for(int i = 0; i < 3; i++) {
@@ -284,6 +286,25 @@ public class Jogo{
 		}
 		return true;
 		
+	}
+	
+	public boolean verificaGanhou() {
+		
+		for(int i = 0; i < 4; i++ ) {
+			for(int j = 0; j < 4; j++) {
+				if(tabuleiro[i][j] == 2048) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	/* So porque o Xastre mandou, deveria jogar ate o final !!!!*/
+	public void trapaca() {
+		tabuleiro[0][0] = 1024;
+		tabuleiro[0][1] = 1024;
 	}
 
 	
